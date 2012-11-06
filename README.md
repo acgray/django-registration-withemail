@@ -45,7 +45,7 @@ Setting up URLs
 
 Include the registration-withemail URLconf in your project urls.py like this::
 
-(r'^accounts/', include('registration.urls')),
+(r'^accounts/', include('registration-withemail.urls')),
 
 Users would then be able to register by visiting the URL
 ``/accounts/register/``, 
