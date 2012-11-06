@@ -56,7 +56,7 @@ and login (once activated) at
 
 
 Required templates
-~~~~~~~~~~~~~~~~~~
+=================
 
 In the default setup, you will need to create several templates
 required by django-registration-withemail, and possibly additional templates
