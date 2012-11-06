@@ -21,8 +21,12 @@ For install django-registration-withemail, run on terminal: ::
 	  ...
 	  'registration-withemail',
 	)    
+
+    Add AUTH_USER_MODEL = 'registration-withemail.EldonUser' to your settings.
 	
 	Run `python manage.py syncdb` to create the User model.
+
+
 
 Required settings
 =================
