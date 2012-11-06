@@ -11,18 +11,18 @@ is not yet compatible with django 1.5.
 Installing
 ==========
 
-For install django-registration-withemail, run on terminal: ::
+To install django-registration-withemail, run on terminal: ::
 
-    $ [sudo] pip install registration-withemail
+    $ [sudo] pip install registration_withemail
 
-	Add "registration-withemail" to your INSTALLED_APPS setting like this::
+	Add "registration_withemail" to your INSTALLED_APPS setting like this::
 
 	INSTALLED_APPS = (
 	  ...
-	  'registration-withemail',
+	  'registration_withemail',
 	)    
 
-    Add AUTH_USER_MODEL = 'registration-withemail.EldonUser' to your settings.
+    Add AUTH_USER_MODEL = 'registration_withemail.EldonUser' to your settings.
 	
 	Run `python manage.py syncdb` to create the User model.
 
@@ -47,9 +47,9 @@ Required settings
 Setting up URLs
 =================
 
-Include the registration-withemail URLconf in your project urls.py like this::
+Include the registration_withemail URLconf in your project urls.py like this::
 
-(r'^accounts/', include('registration-withemail.urls')),
+(r'^accounts/', include('registration_withemail.urls')),
 
 Users would then be able to register by visiting the URL
 ``/accounts/register/``, 
