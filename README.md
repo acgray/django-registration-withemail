@@ -11,7 +11,7 @@ is not yet compatible with django 1.5.
 Installing
 ==========
 
-For install django-compresshtml, run on terminal: ::
+For install django-registration-withemail, run on terminal: ::
 
     $ [sudo] pip install registration-withemail
 
@@ -135,4 +135,4 @@ Changelog
 LICENSE
 =======
 
-Unless otherwise noted, the django-compresshtml source files are distributed under the BSD-style license found in the LICENSE file.
+Unless otherwise noted, the django-registration-withemail source files are distributed under the BSD-style license found in the LICENSE file.
