@@ -3,13 +3,12 @@
 # license that can be found in the LICENSE file.
 
 from setuptools import setup, find_packages
-from compresshtml import __version__
 
 README = open('README.md').read()
 
 setup(
     name = 'django-registration-withemail',
-  	version=__version__,
+  	version='0.1.1',
   	packages=find_packages(),
     include_package_data = True,
     license = 'BSD License',
