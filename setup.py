@@ -7,26 +7,13 @@ from setuptools import setup, find_packages
 README = open('README.md').read()
 
 setup(
-    name = 'django-registration-withemail',
-  	version='0.1.1',
-  	packages=find_packages(),
-    include_package_data = True,
-    license = 'BSD License',
-    description = 'This is a simple user-registration application for Django, designed to make allowing user signups as painless as possible.',
-    long_description = README,
-    author = 'Kamagatos',
-    author_email = 'kamagatos@gmail.com',
-    install_requires=['django',],
-    classifiers = [
-        'Environment :: Web Environment',
-        'Framework :: Django',
-        'Intended Audience :: Developers',
-        'License :: OSI Approved :: BSD License',
-        'Operating System :: OS Independent',
-        'Programming Language :: Python',
-        'Programming Language :: Python :: 2.6',
-        'Programming Language :: Python :: 2.7',
-        'Topic :: Internet :: WWW/HTTP',
-        'Topic :: Internet :: WWW/HTTP :: Dynamic Content',
-    ],
-)
+		name='django-registration-withemail',
+		version='0.1.2',
+		description='This is a simple user-registration application for Django, designed to make allowing user signups as painless as possible.',
+		packages=find_packages(),
+		include_package_data=True,
+		license='BSD License',
+		long_description=README,
+		author='Kamagatos',
+		author_email='kamagatos@gmail.com',
+	)
