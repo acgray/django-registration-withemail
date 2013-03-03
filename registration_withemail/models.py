@@ -18,21 +18,6 @@ SHA1_RE = re.compile('^[a-f0-9]{40}$')
 
 class EldonUserManager(BaseUserManager):
 
-    @classmethod
-    def normalize_email(cls, email):
-        """
-        Normalize the address by lowercasing the domain part of the email
-        address.
-        """
-        email = email or ''
-        try:
-            email_name, domain_part = email.strip().rsplit('@', 1)
-        except ValueError:
-            pass
-        else:
-            email = '@'.join([email_name.lower(), domain_part.lower()])
-        return email
-
     def create_user(self, email, password=None, **extra_fields):
         """
         Creates and saves a User with the given email and password.
@@ -40,7 +25,6 @@ class EldonUserManager(BaseUserManager):
         now = timezone.now()
         if not email:
             raise ValueError('Users must have an email address')
-        email = EldonUserManager.normalize_email(email)
         user = self.model(email=email,
                           is_staff=False, is_active=True, is_superuser=False,
                           last_login=now, date_joined=now, **extra_fields)
