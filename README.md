@@ -28,7 +28,7 @@ To install django-registration-withemail, run on terminal: ::
 
 
 
-Required settings
+Settings
 =================
 
 ``ACCOUNT_ACTIVATION_DAYS``
@@ -43,6 +43,10 @@ Required settings
 	Adds recaptcha to the registration form. You must install django-recaptcha
 	in order to use this setting. For further information about recaptcha
 	see https://github.com/praekelt/django-recaptcha
+
+``AUTHENTICATE_WHEN_ACTIVATE``
+    if True, the user will be immediately logged in after his account activation.
+
 
 Setting up URLs
 =================
