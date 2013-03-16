@@ -8,6 +8,8 @@ from registration_withemail.models import EldonUser
 from django.template import RequestContext
 from django.shortcuts import redirect
 from django.shortcuts import render_to_response
+from django.contrib.auth import login
+from django.conf import settings
 
 from registration_withemail import signals
 
@@ -52,6 +54,10 @@ def activate(request, activation_key, template_name='registration/activate.html'
         signals.user_activated.send(sender=EldonUser,
                                     user=activated,
                                     request=request)
+
+        if settings.AUTHENTICATE_WHEN_ACTIVATE:
+            activated.backend = 'django.contrib.auth.backends.ModelBackend'
+            login(request, activated)
 
         if success_url is None:
             return redirect('registration_activation_complete', **kwargs)
