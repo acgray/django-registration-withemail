@@ -121,6 +121,7 @@ class EldonUser(AbstractBaseUser):
 
     ACTIVATED = u"ALREADY_ACTIVATED"
 
+    username = models.CharField(_('Username'), max_length=75, blank=True)
     email = models.EmailField(_('email adress'), unique=True, db_index=True)
     first_name = models.CharField(_('first name'), max_length=30, blank=True)
     last_name = models.CharField(_('last name'), max_length=30, blank=True)
@@ -159,6 +160,17 @@ class EldonUser(AbstractBaseUser):
             full_name = self.email
 
         return full_name.strip()
+
+    def get_username(self):
+        '''
+            Returns the username, if empty, return the full_name
+        '''
+        if self.username:
+            username = '%s' % (self.username)
+        else:
+            username = self.get_full_name()
+
+        return username.strip()
 
     def get_short_name(self):
         '''
