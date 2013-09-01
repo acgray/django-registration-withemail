@@ -51,13 +51,13 @@ class EldonUserAdmin(UserAdmin):
         Re-sends activation emails for the selected users.
         """
         if Site._meta.installed:
-            site = Site.objects.get_current()
+            site = request.site
         else:
             site = RequestSite(request)
 
         for user in queryset:
             if not user.activation_key_expired():
-                user.send_activation_email(site)
+                EldonUser.objects.send_activation_email(user,site)
     resend_activation_email.short_description = _("Re-send activation emails")
 
     @sensitive_post_parameters()

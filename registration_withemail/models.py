@@ -62,7 +62,7 @@ class EldonUserManager(BaseUserManager):
         #send activation email
         if send_email:
             if Site._meta.installed:
-                site = Site.objects.get_current()
+                site = request.site
             else:
                 site = RequestSite(request)     
                        
