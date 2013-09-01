@@ -44,7 +44,7 @@ class EldonUserManager(BaseUserManager):
         u.save(using=self._db)
         return u        
 
-    def create_inactive_user(self, email, password, send_email=True, **extra_fields):
+    def create_inactive_user(self, email, password, send_email=True, request=None, **extra_fields):
         """
         Creates and saves inactive User with the given email and password.        
         """        
@@ -62,7 +62,10 @@ class EldonUserManager(BaseUserManager):
         #send activation email
         if send_email:
             if Site._meta.installed:
-                site = request.site
+                if 'sitesutils' in settings.INSTALLED_APPS and request:
+                    site = request.site
+                else:
+                    site = Site.objects.get_current()
             else:
                 site = RequestSite(request)     
                        

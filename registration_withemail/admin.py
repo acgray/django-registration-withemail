@@ -51,7 +51,10 @@ class EldonUserAdmin(UserAdmin):
         Re-sends activation emails for the selected users.
         """
         if Site._meta.installed:
-            site = request.site
+            if 'sitesutils' in settings.INSTALLED_APPS:
+                site = request.site
+            else:
+                site = Site.objects.get_current()
         else:
             site = RequestSite(request)
 

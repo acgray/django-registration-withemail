@@ -24,7 +24,7 @@ def register(request, success_url='registration_complete',
         form = UserCreationForm(data=request.POST, files=request.FILES)
         if form.is_valid():
             cleaned_data = form.cleaned_data
-            new_user = EldonUser.objects.create_inactive_user(cleaned_data['email'], cleaned_data['password1'])
+            new_user = EldonUser.objects.create_inactive_user(cleaned_data['email'], cleaned_data['password1'], request=request)
             signals.user_registered.send(sender=EldonUser,
                                          user=new_user,
                                          request=request)         
